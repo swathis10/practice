@@ -1,0 +1,26 @@
+pipeline {
+   agent any
+    
+   stages {
+   
+      stage("A stage to be skipped") {
+         when {
+            expression { false }  //skip this stage
+         }
+         steps {
+            echo 'This step will never be run'
+         }
+      }
+      
+     stage("BASIC WHEN - Branch") {
+         when {
+            branch 'master'
+	 }
+         steps {
+            echo 'BASIC WHEN - Master Branch!'
+         }
+      }
+      
+          }
+       }
+   
